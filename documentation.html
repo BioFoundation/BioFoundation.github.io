@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioScript Documentation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/modela-icon.png" type="image/png">
+    <style>
+        /* Example adjustments for removing center positioning */
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: left; /* Remove global centering */
+        }
+
+        header, nav, .documentation-section{
+            margin: 0 auto;
+            text-align: left; /* Ensure sections are not centered */
+        }
+
+        ul.nav-links {
+            display: flex;
+            justify-content: flex-start; /* Remove horizontal centering of nav links */
+        }
+
+        .documentation-section h1, .documentation-section h2 {
+            text-align: left; /* Adjust headings to be left-aligned */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links left">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="install.html">Install</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="documentation-section">
+        <h1>BioScript Documentation</h1>
+        <h2>Overview</h2>
+        <p>BioScript is a Visual Studio Code extension designed to assist with bioinformatics analyses. It provides a command-driven interface for manipulating and analyzing DNA and RNA sequences, supporting operations such as sequence loading, transcription, translation, mutation simulation, and more.</p>
+
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#commands">Commands</a></li>
+            <li><a href="#helper-functions">Helper Functions</a></li>
+            <li><a href="#example-workflows">Example Workflows</a></li>
+        </ul>
+
+        <h2 id="installation">Installation</h2>
+        <p>To install BioScript:</p>
+        <ol>
+            <li>Place the extension files into your Visual Studio Code extensions directory.</li>
+            <li>Open Visual Studio Code.</li>
+            <li>Run the <strong>Activate Extension</strong> command via the command palette (<code>Ctrl+Shift+P</code> or <code>Cmd+Shift+P</code> on macOS).</li>
+        </ol>
+
+        <h2 id="features">Features</h2>
+        <ul>
+            <li><strong>Load and Manage Sequences:</strong> Load DNA or RNA sequences from files and view sequence information.</li>
+            <li><strong>Manipulate Sequences:</strong> Reverse, complement, transcribe, and translate sequences.</li>
+            <li><strong>Simulate Genetic Variations:</strong> Introduce single nucleotide polymorphisms (SNPs), mutations, and trim sequences.</li>
+            <li><strong>Analyze Sequences:</strong> Calculate nucleotide composition, align sequences, and compute similarity scores.</li>
+            <li><strong>Annotate Sequences:</strong> Add annotations to specific positions within sequences.</li>
+            <li><strong>Pattern Matching:</strong> Filter sequences by searching for specific patterns.</li>
+            <li><strong>Random Sequence Generation:</strong> Generate random DNA sequences of a specified length.</li>
+            <li><strong>Domain Prediction:</strong> Predict functional domains within sequences based on known patterns.</li>
+        </ul>
+
+        <h2 id="usage">Usage</h2>
+        <p>BioScript is command-driven and integrates with Visual Studio Code's command palette. Follow these steps to execute commands:</p>
+        <ol>
+            <li>Open a new text document in Visual Studio Code.</li>
+            <li>Type the desired commands (one per line) into the document.</li>
+            <li>Press <code>Ctrl+Shift+P</code> (or <code>Cmd+Shift+P</code> on macOS) to open the command palette.</li>
+            <li>Type <strong>Evaluate Modela</strong> and select the command to run the BioScript code in the document.</li>
+            <li>Results and outputs will appear as notifications within Visual Studio Code.</li>
+        </ol>
+
+        <h2 id="commands">Commands</h2>
+        <p>BioScript supports a variety of commands to manipulate and analyze sequences. Below are some of the available commands:</p>
+
+        <h3>Load Sequence</h3>
+        <p><code>load sequence from "filename"</code></p>
+        <p>Loads a DNA or RNA sequence from a specified file. The file should be in the same directory as the workspace.</p>
+
+        <h3>Show Sequence Information</h3>
+        <p><code>show info</code></p>
+        <p>Displays the header and the first 200 bases of the currently loaded sequence.</p>
+
+        <h3>Other Commands</h3>
+        <ul>
+            <li><code>show composition</code> - Displays nucleotide composition.</li>
+            <li><code>reverse sequence</code> - Reverses the sequence.</li>
+            <li><code>complement DNA</code> - Generates the complement of the DNA sequence.</li>
+            <li><code>transcribe DNA to RNA</code> - Transcribes DNA into RNA.</li>
+            <li><code>translate RNA to protein</code> - Translates RNA into protein.</li>
+            <li><code>mutate at position <position> to "<base>"</code> - Introduces a mutation at the specified position.</li>
+            <li><code>generate random sequence of length <number></code> - Generates a random DNA sequence.</li>
+        </ul>
+
+        <h2 id="helper-functions">Helper Functions</h2>
+        <p>BioScript uses several helper functions to support its operations, such as <code>complementDNA(sequence)</code>, <code>translateRNAtoProtein(rnaSequence)</code>, and <code>calculateComposition(sequence)</code>.</p>
+
+        <h2 id="example-workflows">Example Workflows</h2>
+        <h3>Workflow 1: Load and Analyze a Sequence</h3>
+        <pre>
+load sequence from "human_gene.fasta"
+show info
+show composition
+transcribe DNA to RNA
+translate RNA to protein
+        </pre>
+
+        <h3>Workflow 2: Simulate Mutations and Annotate</h3>
+        <pre>
+load sequence from "sample_dna.fasta"
+mutate at position 250 to "G"
+introduce SNP at 100,300,500
+annotate with "SNP Location" 100
+show annotations
+        </pre>
+
+        <h3>Workflow 3: Filter and Align Sequences</h3>
+        <pre>
+load sequence from "genome_segment.fasta"
+filter sequence with pattern "TATAAA"
+align with "ATGCGTAGCT"
+        </pre>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BioScript. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
